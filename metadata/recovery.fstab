@@ -1,0 +1,20 @@
+############# Warning!!! #####################
+# This recovery.stab is totally a fake one,  #
+# it MUST be replace with a actural one      #
+# which was pulled out from mygica A6 device #
+# when in recovery mode.                     #
+#############################################
+
+/boot       mtd     boot
+#recovery	not	used
+/recovery   mtd     recovery
+		
+/cache     yaffs2  /dev/block/mtdblock3
+/system    ubifs   system
+/data      ubifs   data
+/backup    ubifs   backup
+		
+#external
+
+		
+#internal
